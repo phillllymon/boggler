@@ -1,9 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { GameContext } from "./boggleContainer";
 
 export const WordBox: React.FC = () => {
     const gameContext = useContext(GameContext);
     const [word, setWord] = useState("");
+    const [numFound, setNumFound] = useState(0);
+    const numWords = Object.keys(gameContext.game.wordsInGrid).length;
     const handleSubmit = (e: any) => {
         e.preventDefault();
         if (gameContext.game.checkAndAddWord(word)) {
@@ -16,8 +18,13 @@ export const WordBox: React.FC = () => {
             }, 300);
 
             setWord("");
+            setNumFound(numFound + 1);
         };
     }
+
+    useEffect(() => { // listen for grid getting reset to reset number of words found
+        setNumFound(0);
+    }, [gameContext.game.grid]);
 
     return (
         <form onSubmit={(e) => handleSubmit(e)}>
@@ -28,6 +35,9 @@ export const WordBox: React.FC = () => {
                 value={word}
                 onChange={(e) => setWord(e.target.value.toUpperCase())}
             />
+            <div className="word-counter">
+                {`${numFound} / ${numWords} words found`}
+            </div>
         </form>
     );
 }

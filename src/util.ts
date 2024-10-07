@@ -86,64 +86,8 @@ const partialGridSearch = (grid: string[][], target: string, startPos: number[],
     };
 }
 
-// // returns true if target string is in grid according to boggle rules, false otherwise
-// export const targetInGrid = (grid: string[][], target: string): boolean => {
-//     let targetFound = false;
-    
-//     // if first letter is present in grid, do partial search starting at that space
-//     for (let row = 0; row < grid.length; row++) {
-//         for (let col = 0; col < grid[0].length; col++) {
-//             if (grid[row][col] === target[0]) {
-//                 const remainingTarget = target.split("").slice(1, target.length).join("");
-//                 const used = [[row, col]];
-//                 if (partialGridSearch(grid, remainingTarget, [row, col], used)) {
-//                     targetFound = true;
-//                 }
-//             }
-//         }
-//     }
-    
-//     return targetFound;
-// }
-
-// // recursive helper for targetInGrid. Searches for target starting at specified position and ignoring
-// // any spaces already specified as used
-// // - startPos in form of [row, col]
-// // - used in form [[row1, col1], [row2, col2], ...] for all spaces not to search
-// const partialGridSearch = (grid: string[][], target: string, startPos: number[], used: number[][]): boolean => {
-//     if (target.length === 0) {
-//         return true;
-//     }
-//     const nextChar = target[0];
-//     const dirsToLook = [
-//         [-1, -1],
-//         [-1, 0],
-//         [-1, 1],
-//         [0, 1],
-//         [1, 1],
-//         [1, 0],
-//         [1, -1],
-//         [0, -1]
-//     ];
-//     for (let i = 0; i < dirsToLook.length; i++) {
-//         const dir = dirsToLook[i];
-//         const spaceToLook = [startPos[0] + dir[0], startPos[1] + dir[1]];
-//         if (!offGrid(grid, spaceToLook) && !alreadyUsed(used, spaceToLook)) {
-//             if (grid[spaceToLook[0]][spaceToLook[1]] === nextChar) {
-//                 const newTarget = target.split("").slice(1, target.length).join("");
-//                 const newUsed = deepCopy(used);
-//                 newUsed.push(spaceToLook);
-//                 if (partialGridSearch(grid, newTarget, spaceToLook, newUsed)) {
-//                     return true;
-//                 }
-//             }
-//         }
-//     }
-//     return false;
-// }
-
-// deep copys an array
-const deepCopy = (arr: any[]): any[] => {
+// deep copys a nested array
+export const deepCopy = (arr: any[][]): any[][] => {
     return arr.map((ele) => {
         if (Array.isArray(ele)) {
             return deepCopy(ele);

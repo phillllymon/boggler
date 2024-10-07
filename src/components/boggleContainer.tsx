@@ -11,19 +11,24 @@ export const GameContext = React.createContext({
     foundWords: game.foundWords,
     setFoundWords: (newList: string[]): void => {}, // will be overwritten with setState below
     highlightedSpaces: emptySpaces,
-    setHighlightedSpaces: (newSpaces: number[][]): void => {}
+    setHighlightedSpaces: (newSpaces: number[][]): void => {},
+    gameGrid: game.grid,
+    setGameGrid: (newGrid: string[][]): void => {}
 });
 
 export const BoggleContainer: React.FC = () => {
     const [wordsToShow, setWordsToShow] = useState(game.foundWords);
     const [highlightedSpacesToShow, setHighlightedSpacesToShow] = useState(emptySpaces);
+    const [gameGridToShow, setGameGridToShow] = useState(game.grid);
     return (
         <GameContext.Provider value={{
             game: game,
             foundWords: wordsToShow,
             setFoundWords: setWordsToShow,
             highlightedSpaces: highlightedSpacesToShow,
-            setHighlightedSpaces: setHighlightedSpacesToShow
+            setHighlightedSpaces: setHighlightedSpacesToShow,
+            gameGrid: gameGridToShow,
+            setGameGrid: setGameGridToShow
         }}>
             <div className="boggle-container">
                 <LettersContainer />

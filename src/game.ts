@@ -3,31 +3,36 @@ import { letters } from "./constants";
 import { randomElement, targetInGrid, isDefined } from "./util";
 
 export class Game {
+    gridSize: number;
     grid: string[][];
-    // wordsInGrid: Set<string>;
     wordsInGrid: Record<string, number[][]>;
     foundWords: string[];
-    checkWord: (word: string) => boolean;
-    checkAndAddWord: (word: string) => boolean; // checks if word in grid and if yes adds to foundWords
-    
     
     constructor(n: number = 4) {
-        this.grid = this.generateRandomGrid(n);
-        // this.wordsInGrid = this.generateWordsSet();
+        this.gridSize = n;
+        this.grid = this.generateRandomGrid(this.gridSize);
         this.wordsInGrid = this.generateWordsInGrid();
         this.foundWords = [];
-        this.checkWord = (word: string) => {
-            return isDefined(this.wordsInGrid[word]);
-        };
         
-        this.checkAndAddWord = (word: string): boolean => {
-            if (this.checkWord(word) && !this.foundWords.includes(word)) {
-                this.foundWords.push(word);
-                return true;
-            }
-            return false;
-        };
         console.log(this.wordsInGrid);
+    }
+
+    resetGame(): void {
+        this.grid = this.generateRandomGrid(this.gridSize);
+        this.wordsInGrid = this.generateWordsInGrid();
+        this.foundWords = [];
+    }
+
+    checkAndAddWord(word: string): boolean {
+        if (this.checkWord(word) && !this.foundWords.includes(word)) {
+            this.foundWords.push(word);
+            return true;
+        }
+        return false;
+    }
+
+    checkWord(word: string): boolean {
+        return isDefined(this.wordsInGrid[word]);
     }
 
     getSpacesForWord(word: string): number[][] {
@@ -46,18 +51,6 @@ export class Game {
         });
         return words;
     }
-
-    // generateWordsSet(): Set<string> {
-    //     const set = new Set<string>();
-    //     allWords.forEach((word) => {
-    //         if (word.length > 2) {
-    //             if (targetInGrid(this.grid, word).found) {
-    //                 set.add(word);
-    //             }
-    //         }
-    //     });
-    //     return set;
-    // }
 
     generateRandomGrid(n: number): string[][] {
         let grid: string[][] = [];

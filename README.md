@@ -3,6 +3,7 @@ Online resources used:
 1. https://stackoverflow.com/questions/5445491/height-equal-to-dynamic-width-css-fluid-layout
 2. https://react.dev/reference/react/useContext
 3. https://stackoverflow.com/questions/50817672/does-new-react-context-api-trigger-re-renders
+4. https://react.dev/reference/react/useEffect
 
 
 Note: The default word list has only around 6000 words. It's an example only and you will undoubtedly get frustrated very quickly if you try to play the game with it.
