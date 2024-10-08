@@ -1,4 +1,18 @@
 # Welcome to Boggler, a customizable boggle game!
+To upload a letter grid and see all answers in that grid, follow these steps:
+1. Create a text file with your letters arranged in rows with no other spaces or characters, like this:
+ABCD
+EFGH
+IJKL
+MNOP
+2. In the game click "Customize"
+3. Select "Upload grid"
+4. Click "Choose file" and select your text file
+5. Click "Save grid" - you should see the main grid switch to your letters
+6. Click "Done"
+7. Click "Show answers"
+
+
 Online resources used:
 1. https://stackoverflow.com/questions/5445491/height-equal-to-dynamic-width-css-fluid-layout
 2. https://react.dev/reference/react/useContext

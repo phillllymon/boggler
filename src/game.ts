@@ -17,8 +17,6 @@ export class Game {
         this.wordsInGrid = this.generateWordsInGrid();
         this.foundWords = [];
         this.numWordsInGrid = Object.keys(this.wordsInGrid).length;
-        
-        console.log(this.wordsInGrid);
     }
 
     setWords(newWords: string[]): void {
