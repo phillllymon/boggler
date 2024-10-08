@@ -17,7 +17,7 @@ type TargetReport = {
     spaces: number[][] // all the positions occupied by target in grid
 }
 
-// returns true if target string is in grid according to boggle rules, false otherwise
+// returns targetReport specifying if target is in grid and if so, what spaces it occupies
 export const targetInGrid = (grid: string[][], target: string): TargetReport => {
     let targetFound = false;
     let spacesFound: number[][] = [];
