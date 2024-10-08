@@ -1,10 +1,11 @@
 # Welcome to Boggler, a customizable boggle game!
 To upload a letter grid and see all answers in that grid, follow these steps:
-1. Create a text file with your letters arranged in rows with no other spaces or characters, like this:
-ABCD
-EFGH
-IJKL
-MNOP
+1. Create a text file with your letters arranged in rows with no other spaces or characters, like this:  
+ABCD  
+EFGH  
+IJKL  
+MNOP  
+
 2. Go to https://graffiti.red/boggler/build/ to see the game live
 3. In the game click "Customize"
 4. Select "Upload grid"
