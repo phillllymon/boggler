@@ -11,15 +11,18 @@ export const GameContext = React.createContext({
     foundWords: game.foundWords,
     setFoundWords: (newList: string[]): void => {}, // will be overwritten with setState below
     highlightedSpaces: emptySpaces,
-    setHighlightedSpaces: (newSpaces: number[][]): void => {},
+    setHighlightedSpaces: (newSpaces: number[][]): void => {}, // will be overwritten with setState below
     gameGrid: game.grid,
-    setGameGrid: (newGrid: string[][]): void => {}
+    setGameGrid: (newGrid: string[][]): void => {}, // will be overwritten with setState below
+    numWordsInGrid: game.numWordsInGrid,
+    setNumWordsInGrid: (newNum: number): void => {} // will be overwritten with setState below
 });
 
 export const BoggleContainer: React.FC = () => {
     const [wordsToShow, setWordsToShow] = useState(game.foundWords);
     const [highlightedSpacesToShow, setHighlightedSpacesToShow] = useState(emptySpaces);
     const [gameGridToShow, setGameGridToShow] = useState(game.grid);
+    const [numWordsInGridToShow, setNumWordsInGridToShow] = useState(game.numWordsInGrid);
     return (
         <GameContext.Provider value={{
             game: game,
@@ -28,7 +31,9 @@ export const BoggleContainer: React.FC = () => {
             highlightedSpaces: highlightedSpacesToShow,
             setHighlightedSpaces: setHighlightedSpacesToShow,
             gameGrid: gameGridToShow,
-            setGameGrid: setGameGridToShow
+            setGameGrid: setGameGridToShow,
+            numWordsInGrid: numWordsInGridToShow,
+            setNumWordsInGrid: setNumWordsInGridToShow
         }}>
             <div className="boggle-container">
                 <LettersContainer />

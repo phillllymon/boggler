@@ -16,6 +16,7 @@ export const LettersContainer: React.FC = () => {
                                 return (
                                     <Letter
                                         letter={letter}
+                                        gridSize={row.length}
                                         highlighted={highlightedSpacesCodes.includes(`${rIdx}-${cIdx}`)}
                                         key={`${rIdx}${cIdx}`}
                                     /> 

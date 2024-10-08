@@ -7,20 +7,39 @@ export class Game {
     grid: string[][];
     wordsInGrid: Record<string, number[][]>;
     foundWords: string[];
+    allWords: string[];
+    numWordsInGrid: number;
     
     constructor(n: number = 4) {
         this.gridSize = n;
+        this.allWords = allWords;
         this.grid = this.generateRandomGrid(this.gridSize);
         this.wordsInGrid = this.generateWordsInGrid();
         this.foundWords = [];
+        this.numWordsInGrid = Object.keys(this.wordsInGrid).length;
         
         console.log(this.wordsInGrid);
+    }
+
+    setWords(newWords: string[]): void {
+        this.allWords = newWords;
+        this.wordsInGrid = this.generateWordsInGrid();
+        this.foundWords = [];
+        this.numWordsInGrid = Object.keys(this.wordsInGrid).length;
+    }
+
+    setGrid(grid: string[][]): void {
+        this.grid = grid;
+        this.wordsInGrid = this.generateWordsInGrid();
+        this.foundWords = [];
+        this.numWordsInGrid = Object.keys(this.wordsInGrid).length;
     }
 
     resetGame(): void {
         this.grid = this.generateRandomGrid(this.gridSize);
         this.wordsInGrid = this.generateWordsInGrid();
         this.foundWords = [];
+        this.numWordsInGrid = Object.keys(this.wordsInGrid).length;
     }
 
     checkAndAddWord(word: string): boolean {
@@ -41,7 +60,7 @@ export class Game {
 
     generateWordsInGrid(): Record<string, number[][]> {
         const words: Record<string, number[][]> = {};
-        allWords.forEach((word) => {
+        this.allWords.forEach((word) => {
             if (word.length > 2) {
                 const targetReport = targetInGrid(this.grid, word);
                 if (targetReport.found) {

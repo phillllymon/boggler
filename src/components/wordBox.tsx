@@ -5,7 +5,7 @@ export const WordBox: React.FC = () => {
     const gameContext = useContext(GameContext);
     const [word, setWord] = useState("");
     const [numFound, setNumFound] = useState(0);
-    const numWords = Object.keys(gameContext.game.wordsInGrid).length;
+    const numWords = gameContext.numWordsInGrid;
     const handleSubmit = (e: any) => {
         e.preventDefault();
         if (gameContext.game.checkAndAddWord(word)) {

@@ -29,6 +29,7 @@ code {
   min-height: 600px;
   aspect-ratio: 1/1;
   background-color: rgb(0, 0, 255);
+  border-radius: 1vh;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -41,6 +42,7 @@ code {
   background-color: rgb(0, 0, 255);
   margin-left: 4vh;
   padding: 1vh;
+  border-radius: 1vh;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -55,11 +57,16 @@ code {
 
 .letter {
   position: absolute;
-  left: 5%;
-  top: 5%;
-  height: 90%;
-  width: 90%;
-  background-color: rgb(209, 206, 206);
+  left: 10%;
+  top: 10%;
+  height: 80%;
+  width: 80%;
+  /* background-color: rgb(209, 206, 206); */
+  background-color: white;
+  box-sizing: border-box;
+  border: 0.5vh outset white;
+  border-radius: 10%;
+  box-shadow: 0vh 0vh 2vh 2vh rgba(128, 128, 128, 0.548);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,6 +86,9 @@ code {
   font-size: 4vh;
   border: none;
   border-bottom: 2px solid rgb(163, 162, 162);
+  border-top-left-radius: 1vh;
+  border-top-right-radius: 1vh;
+  text-align: center;
 }
 
 .word-box::placeholder {
@@ -113,6 +123,7 @@ code {
   color: white;
   text-align: center;
   margin-bottom: 1vh;
+  border-radius: 1vh;
   cursor: pointer;
 }
 
@@ -133,7 +144,7 @@ code {
   top: 50%;
   transform: translate(-50%, -50%);
   /* height: 60vh; */
-  width: 70vh;
+  width: 80vh;
   background-color: rgb(0, 0, 255);
   z-index: 2;
   display: flex;
@@ -146,13 +157,18 @@ code {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 38vh;
+  width: 48vh;
+  height: 50vh;
+  color: white;
+  font-size: 2vh;
+  text-align: center;
 }
 
 .customize-button-area {
   width: 32vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   padding: 1vh;
   box-sizing: border-box;
   padding-bottom: 0vh;
@@ -171,4 +187,36 @@ code {
   margin: 0.5vh;
   text-align: center;
   color: rgb(122, 122, 122);
+}
+
+.small-button {
+  width: 24vh;
+  margin-top: 2vh;
+}
+
+.example-file {
+  background-color: white;
+  color: black;
+  font-family: 'Courier New', Courier, monospace;
+  padding-right: 1vh;
+  padding-bottom: 1vh;
+  border: 1px inset rgb(122, 122, 122);
+  margin-right: 3vh;
+  margin-left: 3vh;
+  min-height: 8vh;
+  min-width: 4vh;
+  max-height: 14vh;
+  max-width: 10vh;
+  text-align: left;
+  overflow: auto;
+}
+
+.tall-input {
+  height: 75%;
+  overflow: auto;
+}
+
+.error-message {
+  color: rgb(255, 0, 0);
+  height: 2vh;
 }

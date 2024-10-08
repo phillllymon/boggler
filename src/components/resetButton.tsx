@@ -8,11 +8,12 @@ export const ResetButton: React.FC = () => {
         gameContext.game.resetGame();
         gameContext.setGameGrid(gameContext.game.grid);
         gameContext.setFoundWords(gameContext.game.foundWords);
+        gameContext.setNumWordsInGrid(gameContext.game.numWordsInGrid);
     }
 
     return (
         <div className="game-button" onClick={handleClick}>
-            Reset game
+            New game
         </div>
     );
 }
