@@ -5,12 +5,13 @@ ABCD
 EFGH
 IJKL
 MNOP
-2. In the game click "Customize"
-3. Select "Upload grid"
-4. Click "Choose file" and select your text file
-5. Click "Save grid" - you should see the main grid switch to your letters
-6. Click "Done"
-7. Click "Show answers"
+2. Go to https://graffiti.red/boggler/build/ to see the game live
+3. In the game click "Customize"
+4. Select "Upload grid"
+5. Click "Choose file" and select your text file
+6. Click "Save grid" - you should see the main grid switch to your letters
+7. Click "Done"
+8. Click "Show answers"
 
 
 Online resources used:
